@@ -19,7 +19,7 @@ namespace AutoNudge;
 
 public class AutoNudgeMod : BloonsTD6Mod
 {
-    public static readonly ModSettingHotkey AutoNudgeHotkey = new(KeyCode.A, HotkeyModifier.Ctrl)
+    public static readonly ModSettingHotkey AutoNudgeHotkey = new(KeyCode.Tab)
     {
         description = "HotKey that will automatically nudge towers to the closest valid spot while placing them.",
         icon = ModContent.GetTextureGUID<AutoNudgeMod>("Icon")
