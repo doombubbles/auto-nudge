@@ -58,6 +58,6 @@ public class AutoNudgeMod : BloonsTD6Mod
         var cursorWorld = InGame.instance.GetWorldFromPointer(realCursorPos);
 
         return bridge.CanPlaceTowerAt(cursorWorld, inputManager.placementModel, bridge.MyPlayerNumber,
-            inputManager.placementTowerId);
+            inputManager.placementEntityId);
     }
 }
