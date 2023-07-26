@@ -31,7 +31,7 @@ public class AutoNudgeMod : BloonsTD6Mod
 
         var inputManager = InGame.instance.InputManager;
 
-        if (!inputManager.IsInPlacementMode()) return;
+        if (!inputManager.IsInPlacementMode) return;
 
         var realCursorPos = InputSystemController.MousePosition;
 
