@@ -2,15 +2,9 @@ using MelonLoader;
 using BTD_Mod_Helper;
 using AutoNudge;
 using BTD_Mod_Helper.Api;
-using BTD_Mod_Helper.Api.Helpers;
+using BTD_Mod_Helper.Api.Enums;
 using BTD_Mod_Helper.Api.ModOptions;
-using HarmonyLib;
-using Il2Cpp;
-using Il2CppAssets.Scripts.Unity.UI_New.InGame;
-using Il2CppAssets.Scripts.Unity.UI_New.Settings;
-using Il2CppGeom;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [assembly: MelonInfo(typeof(AutoNudgeMod), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
@@ -25,39 +19,32 @@ public class AutoNudgeMod : BloonsTD6Mod
         icon = ModContent.GetTextureGUID<AutoNudgeMod>("Icon")
     };
 
-    public override void OnUpdate()
+    public static readonly ModSettingHotkey NudgeLeft = new(KeyCode.LeftArrow)
     {
-        if (InGame.instance == null || InGame.instance.bridge == null || !AutoNudgeHotkey.JustPressed()) return;
+        icon = VanillaSprites.PS4_Dpad_Left
+    };
 
-        var inputManager = InGame.instance.InputManager;
-
-        if (!inputManager.IsInPlacementMode) return;
-
-        var realCursorPos = InputSystemController.MousePosition;
-
-        var i = 0;
-        while (!CanPlace(realCursorPos))
-        {
-            realCursorPos = InputSystemController.MousePosition + Vector2.up.Rotate(i * 10) * i / 10;
-            realCursorPos = new Vector2((int) realCursorPos.x, (int) realCursorPos.y);
-
-            if (i++ > 20000)
-            {
-                ModHelper.Msg<AutoNudgeMod>("No spot found");
-                return;
-            }
-        }
-
-        Mouse.current.WarpCursorPosition(realCursorPos);
-    }
-    
-    public static bool CanPlace(Vector2 realCursorPos)
+    public static readonly ModSettingHotkey NudgeRight = new(KeyCode.RightArrow)
     {
-        var inputManager = InGame.instance.InputManager;
-        var bridge = InGame.instance.bridge;
-        var cursorWorld = InGame.instance.GetWorldFromPointer(realCursorPos);
+        icon = VanillaSprites.PS4_Dpad_Right
+    };
 
-        return bridge.CanPlaceTowerAt(cursorWorld, inputManager.placementModel, bridge.MyPlayerNumber,
-            inputManager.placementEntityId);
-    }
+    public static readonly ModSettingHotkey NudgeUp = new(KeyCode.UpArrow)
+    {
+        icon = VanillaSprites.PS4_Dpad_Up
+    };
+
+    public static readonly ModSettingHotkey NudgeDown = new(KeyCode.DownArrow)
+    {
+        icon = VanillaSprites.PS4_Dpad_Down
+    };
+
+    public static readonly ModSettingHotkey ConfirmPlacement = new(KeyCode.Return)
+    {
+        icon = VanillaSprites.SelectedTick
+    };
+
+    public static MelonLogger.Instance MelonLogger => Melon<AutoNudgeMod>.Logger;
+
+    public override void OnUpdate() => AutoNudgeUtility.Update();
 }
