@@ -5,6 +5,7 @@
 </a>
 Auto Nudge
 </h1>
+<br/>
 
 ## Note: The functionality of this mod is also included as part of [Useful Utilities](https://github.com/doombubbles/useful-utilities#readme)
 
