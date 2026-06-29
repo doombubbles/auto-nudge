@@ -11,5 +11,6 @@ public static class ModHelperData
         "For best results, make sure you've got Nudge Mode Disabled in the default game's settings.";
 
     public const string RepoOwner = "doombubbles";
-    public const string RepoName = "auto-nudge";
+    public const string PrevRepoName = "auto-nudge";
+    public const string RepoName = "AutoNudge";
 }
