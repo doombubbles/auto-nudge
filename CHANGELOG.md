@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-08-06
+
 - Fixed for BTD6 v56
 
 ## [1.0.3] - 2025-12-07
@@ -29,7 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Release
 
-[unreleased]: https://github.com/doombubbles/AutoNudge/compare/1.0.3...HEAD
+[unreleased]: https://github.com/doombubbles/AutoNudge/compare/1.0.4...HEAD
+[1.0.4]: https://github.com/doombubbles/AutoNudge/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/doombubbles/AutoNudge/compare/1.0.3...1.0.3
 [1.0.3]: https://github.com/doombubbles/AutoNudge/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/doombubbles/AutoNudge/compare/1.0.1...1.0.2
